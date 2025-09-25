@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "myFont";
+  src: url("/assets/font/Belfast-Serial Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "myFont2";
+  src: url("/assets/font/IndentureEnglishPenman_personal_use_demo_0.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+.about-container {
+  margin-top: 3%;
+  padding: 30%;
+  position: relative;
+}
+.name{
+  position: absolute;
+  font-size: 80px;
+  color: #222;
+  font-family: "myFont2", sans-serif;
+  top: 2%;
+  left: 12%;
+}
+.text-block {
+  position: absolute;
+  font-size: 80px;
+  color: #222;
+  font-family: "myFont", sans-serif;
+}
+.left-top {
+  top: 20%;
+  left: 12%;
+}
+.right-bottom {
+  bottom: 20%;
+  right: 8%;
+}
+.about-description {
+  position: absolute;
+  max-width: 430px;
+  font-size: 18px;
+  color: #444;
+}
+.left-top1 {
+  bottom: 32%;
+  left: 12.5%;
+}
+
+.right-bottom1 {
+  bottom: 48%;
+  right: 16%;
+}
+.about-container2 {
+  padding-bottom: 8%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;      
+  text-align: center;
+}
+.main-title {
+  font-family: "myFont";
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  transform: translateX(40px);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 30px;
+  justify-content: center; 
+}
+
+.about-text {
+  transform: translateX(90px); 
+  max-width: 700px;
+  text-align: left; 
+}
+
+.subtitle {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.about-text p {
+  font-size:25px;
+  margin-bottom: 10px;
+}
+
+.profile-photo {
+  width: 400px;
+  height: 390px;
+  border-radius: 100% 100% 0 0;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}

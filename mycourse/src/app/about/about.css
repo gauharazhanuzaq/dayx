@@ -10,49 +10,9 @@
   font-weight: normal;
   font-style: normal;
 }
-.about-container {
-  margin-top: 3%;
-  padding: 30%;
-  position: relative;
-}
-.name{
-  position: absolute;
-  font-size: 80px;
-  color: #222;
-  font-family: "myFont2", sans-serif;
-  top: 2%;
-  left: 12%;
-}
-.text-block {
-  position: absolute;
-  font-size: 80px;
-  color: #222;
-  font-family: "myFont", sans-serif;
-}
-.left-top {
-  top: 20%;
-  left: 12%;
-}
-.right-bottom {
-  bottom: 20%;
-  right: 8%;
-}
-.about-description {
-  position: absolute;
-  max-width: 430px;
-  font-size: 18px;
-  color: #444;
-}
-.left-top1 {
-  bottom: 32%;
-  left: 12.5%;
-}
 
-.right-bottom1 {
-  bottom: 48%;
-  right: 16%;
-}
 .about-container2 {
+  padding-top: 7%;
   padding-bottom: 8%;
   width: 100%;
   box-sizing: border-box;
@@ -100,4 +60,77 @@
   border-radius: 100% 100% 0 0;
   object-fit: cover;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;              
+  margin-top: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+button {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.click {
+  width: 160px;
+}
+
+.toggle {
+  width: 180px;
+}
+
+.subscribe {
+  width: 425px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.15);  
+  border: 1px solid rgba(255, 255, 255, 0.25); 
+  backdrop-filter: blur(8px);           
+  -webkit-backdrop-filter: blur(8px);   
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 400px;
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }

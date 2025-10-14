@@ -1,15 +1,26 @@
 <div class="todo-container">
   <h2>Todo List</h2>
 
+  <input
+    type="text"
+    placeholder="Search todos..."
+    [value]="searchTerm"
+    (input)="onSearch($event.target.value)"
+  />
+
   <button (click)="loadTodos()" [disabled]="isLoading">
-    {{ isLoading ? 'Loading...' : 'Load Todos' }}
+    {{ isLoading ? 'Loading...' : 'Reload Todos' }}
   </button>
 
-  <ul>
-    @for (todo of todos; track todo.id) {
-      <li [class.completed]="todo.completed">
-        <strong>#{{ todo.id }}</strong> {{ todo.title }}
-      </li>
-    }
-  </ul>
+<ul>
+  @for (todo of todos; track todo.id) {
+    <li [class.completed]="todo.completed">
+      <strong>{{ todo.id }}</strong>
+      <span>{{ todo.title }}</span>
+    </li>
+  }
+</ul>
+
+
+  <p *ngIf="!isLoading && todos.length === 0" class="empty-text">No todos found.</p>
 </div>

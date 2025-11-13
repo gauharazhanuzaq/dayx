@@ -1,0 +1,19 @@
+<div *ngIf="loading" class="loading">Loading...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="item && !loading" class="item-card">
+  <h2 class="item-title">{{ item.title }}</h2>
+
+  <img [src]="item.thumbnail" [alt]="item.title" class="item-image" />
+
+  <p class="item-description">{{ item.description }}</p>
+
+  <ul class="item-info">
+    <li><strong>Category:</strong> {{ item.category }}</li>
+    <li><strong>Brand:</strong> {{ item.brand }}</li>
+    <li><strong>Price:</strong> ${{ item.price }}</li>
+    <li><strong>Rating:</strong> ⭐ {{ item.rating }}</li>
+  </ul>
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+</div>

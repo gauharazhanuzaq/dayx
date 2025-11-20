@@ -1,0 +1,68 @@
+.profile-page {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  color: #e16b17;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #78380bff;
+}
+
+.profile-page p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #220e00ff;
+  margin: 0.3rem 0;
+}
+
+.profile-page button {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(235, 103, 37, 0.15);
+  color: #973f00ff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-page button:hover {
+  background: rgba(86, 35, 15, 0.25);
+  box-shadow: 0 0 10px rgba(114, 52, 19, 0.25);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Стиль для состояния, когда пользователь не вошёл */
+.profile-page + ng-template p {
+  text-align: center;
+  color: #973f00ff;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 50px;
+}

@@ -5,15 +5,14 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/auth';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
+  selector: 'app-signup',
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  templateUrl: './signup.html',
+  styleUrl: './signup.css',
 })
-export class LoginComponent {
-  email = '';
+export class Signup { email = '';
   password = '';
+  confirmPassword = '';
   loading = false;
   errorMessage = '';
 
@@ -22,11 +21,17 @@ export class LoginComponent {
     private router: Router
   ) {}
 
-  onLogin() {
+  onSignup() {
     this.errorMessage = '';
+
+    if (this.password !== this.confirmPassword) {
+      this.errorMessage = 'Passwords do not match';
+      return;
+    }
+
     this.loading = true;
 
-    this.auth.login(this.email, this.password).subscribe({
+    this.auth.signup(this.email, this.password).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/profile']);
@@ -37,4 +42,5 @@ export class LoginComponent {
       }
     });
   }
- }
+
+}

@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemsService } from '../../Services/items';
-import { ItemCardComponent } from './item-card';
+import { ItemCardComponent } from '../item-card/item-card';
 import { Item } from '../../Services/models';
+import { Subject, debounceTime } from 'rxjs';
 
 @Component({
     selector: 'app-items-list',
@@ -18,7 +19,7 @@ export class ItemsListComponent implements OnInit {
     query = '';
     loading = false;
     error = '';
-
+    searchChanged = new Subject<string>();
     constructor(
         private itemsService: ItemsService,
         private route: ActivatedRoute,
@@ -26,6 +27,15 @@ export class ItemsListComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.searchChanged
+            .pipe(debounceTime(300))
+            .subscribe(value => {
+                this.router.navigate([], {
+                    queryParams: { q: value || null },
+                    queryParamsHandling: 'merge'
+                });
+            });
+
         this.route.queryParamMap.subscribe(params => {
             this.query = params.get('q') || '';
             this.loadItems();
@@ -33,10 +43,7 @@ export class ItemsListComponent implements OnInit {
     }
 
     onSearchChange() {
-        this.router.navigate([], {
-            queryParams: { q: this.query || null },
-            queryParamsHandling: 'merge'
-        });
+        this.searchChanged.next(this.query);
     }
 
     loadItems() {

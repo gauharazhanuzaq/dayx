@@ -9,8 +9,9 @@ export class ItemsService {
 
   constructor(private http: HttpClient) { }
 
-  getItems(query?: string, page = 1): Observable<Item[]> {
-    const url = query ? `${this.baseUrl}/search?q=${query}` : this.baseUrl;
+  getItems(query?: string, limit = 10): Observable<Item[]> {
+    const url = query ? `${this.baseUrl}/search?q=${query}&limit=${limit}`
+      : `${this.baseUrl}?limit=${limit}`;
     return this.http.get<any>(url).pipe(map(res => res.products));
   }
 

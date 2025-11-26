@@ -1,0 +1,27 @@
+<div class="items-container">
+  <h2 class="title">Items</h2>
+  
+  <div class="search-box">
+    <input
+      [(ngModel)]="query"
+      (ngModelChange)="onSearchChange()"
+      placeholder="Search items..."
+      class="search-input"
+      type="text"
+    />
+  </div>
+  
+  <div *ngIf="loading$ | async" class="loading">Loading...</div>
+  
+  <div *ngIf="error$ | async as error" class="error">{{ error }}</div>
+  
+  <div class="list" *ngIf="(loading$ | async) === false && (items$ | async) as items">
+    <ng-container *ngIf="items.length > 0">
+      <app-item-card *ngFor="let item of items" [item]="item"></app-item-card>
+    </ng-container>
+    
+    <div *ngIf="items.length === 0 && !(error$ | async)" class="empty">
+      No items found.
+    </div>
+  </div>
+</div>

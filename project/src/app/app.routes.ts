@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home';
 import { About } from './Components/about/about';
-import { ItemsListComponent } from './Components/items-list/items-list';
-import { ItemDetailsComponent } from './Components/item-details/item-details';
+import { ItemsListComponent } from './Components/items/items-list/items-list';
+import { ItemDetailsComponent } from './Components/items/item-details/item-details';
 import { LoginComponent } from './Components/login/login';
 import { Signup } from './Components/signup/signup';
 import { ProfileComponent } from './Components/profile/profile';

@@ -14,6 +14,8 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { itemsReducer } from './app/Components/items/state/items.reducer';
 import { ItemsEffects } from './app/Components/items/state/items.effects';
+import { isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -25,6 +27,9 @@ bootstrapApplication(AppComponent, {
     provideAuth(() => getAuth()),
     provideStore({ items: itemsReducer }),
     provideEffects([ItemsEffects]),
-    provideStoreDevtools({ maxAge: 25, logOnly: environment.production })
+    provideStoreDevtools({ maxAge: 25, logOnly: environment.production }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          })
   ],
 });
